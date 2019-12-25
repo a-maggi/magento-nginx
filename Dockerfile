@@ -35,6 +35,7 @@ max_input_vars = 75000' >> /usr/local/etc/php/php.ini
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 COPY startup.sh /bin/startup.sh
+RUN chmod 777 /bin/startup.sh
 
 WORKDIR /var/www/html
 
