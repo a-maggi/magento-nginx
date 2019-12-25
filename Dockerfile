@@ -32,7 +32,12 @@ zlib.output_compression = On\n\
 pm.max_children = 20\n\
 max_input_vars = 75000' >> /usr/local/etc/php/php.ini
 
-COPY default.conf /etc/nginx/conf.d/default.conf
+
+COPY ./conf.d/ /etc/nginx/conf.d/
+RUN ls /etc/nginx/conf.d
+
+RUN rm -rf /etc/nginx/sites-enabled
+RUN mkdir -p /etc/nginx/sites-enabled
 
 COPY startup.sh /bin/startup.sh
 RUN chmod 777 /bin/startup.sh
